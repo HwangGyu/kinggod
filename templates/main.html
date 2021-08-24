@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+
+    <div class="fixed">
+        <br>
+        <h1>당뇨병 자가진단</h1><br><br>
+        <progress value="0" max="{{lenawd}}" id="pro"></progress>
+
+
+        {% for i, v in enumerate(question) %}
+        <div class="box">
+            <h1>{{i + 1}}</h1>
+            <p>{{v}}</p><br>
+            <button class="btn" data-ts="1" data-cnt="{{i}}" id="N{{i}}-1">예</button>
+            <button class="btn" data-ts="0" data-cnt="{{i}}" id="N{{i}}-0" style="margin-left: 20px;">아니오</button>    
+        </div><hr>
+        {% endfor %}
+
+
+
+
+    </div>
+    
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+</html>
